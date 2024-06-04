@@ -26,3 +26,6 @@ range = [
  '61-70',
  '71-80',
  'over80'] coressponding with the number 0 to 13 as I named the folders
+
+### Turning point 3
+Well the model got even worse so I changed back ResNet50 and this time added Dropout = 0.2 and a additional layers, I also modified the labeling a little bit, all those modifications are done on R (i am not familiar with pandas)
