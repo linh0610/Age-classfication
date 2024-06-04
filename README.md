@@ -25,4 +25,4 @@ range = [
  '51-60',
  '61-70',
  '71-80',
- 'over80'] coressponding with the number 1 to 14 as I named the folders
+ 'over80'] coressponding with the number 0 to 13 as I named the folders
