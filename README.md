@@ -32,3 +32,7 @@ range = [
  - I also save the models I used as v1 v2 and v3
  - Since there also lots of imbalance in the dataset, I opted for using confusion matrix instead of accuracy and maximize recall, and I could instantly see the model doing better
   - The model is doing better now but I see some overfitting in the some crossvalidation so I also add early stopping with the patience of 7 so that there is less chance for overfitting in the last training
+### Hyperparameter Tuning
+- The best hyperparameter is 0.001 and with wd 1e-05, best validation recall: 0.84%, the total running time was 788 minutes 8.58 seconds, epoch loss in this attempt was Loss: 0.4728 and looks very promising.
+### Final traininng 
+The final training is done by 50 epochs with early stop loss with 7 patience
