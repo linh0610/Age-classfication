@@ -34,5 +34,7 @@ range = [
   - The model is doing better now but I see some overfitting in the some crossvalidation so I also add early stopping with the patience of 7 so that there is less chance for overfitting in the last training
 ### Hyperparameter Tuning
 - The best hyperparameter is 0.001 and with wd 1e-05, best validation recall: 0.84%, the total running time was 788 minutes 8.58 seconds, epoch loss in this attempt was Loss: 0.4728 and looks very promising.
-### Final traininng 
+### First traininng 
 The final training is done by 50 epochs with early stop loss with 7 patience
+The loss was decreasing but validation would only increment very little at the time, the distance between training error and val error was also increasing, 
+because of that, I increased the drop out rate to 0.3
