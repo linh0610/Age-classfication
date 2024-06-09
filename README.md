@@ -49,5 +49,5 @@ because of that, I increased the drop out rate to 0.4
 ### Fourth training 
  - Back to AgeModel with drop out rate 0.5
 ### Fifth training
- - Now with L1 regularization
+ - Now with L1 regularization with lambda 0.8 since there was a lot overfitting in the previous training
 
