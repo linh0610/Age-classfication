@@ -48,4 +48,6 @@ because of that, I increased the drop out rate to 0.4
  - The validation is even lower than before and it did not helped
 ### Fourth training 
  - Back to AgeModel with drop out rate 0.5
+### Fifth training
+ - Now with L1 regularization
 
