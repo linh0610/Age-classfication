@@ -1,5 +1,7 @@
 # Age-classfication
  - This project started when I was interested into see how a model that have been trained to an acceptable validation accuracy would classifiy me and my friends at what age
+### My edited dataset and model check point
+[Data and model]([https://link-url-here.org](https://drive.google.com/drive/folders/1_8wG8KkBuwocg8D-3hXxvtBLhZFS9f_r?usp=drive_link))
 ## Dataset
  - This model is trained on the UTK dataset: https://www.kaggle.com/datasets/jangedoo/utkface-new/code
 ### Turning point 1:
@@ -54,6 +56,14 @@ because of that, I increased the drop out rate to 0.4
 - lambda 0.8, wd = 1e-6, batch size = 4
 ### Seventh training 
 - lambda 0.9, wd = 1e-6, batch size = 8
+### Final training
+lambda 0.08, wd 1e-5 batch size 16, val size 25%, momentum = 0.4 (Last training)
+### Evaludation
+Test Precision: 0.85, Recall: 0.85, F1 Score: 0.85, Time: 2 minutes 17.13 seconds
+
+### Test: 
+0.85 recall and precisiom
+
 
   
 
