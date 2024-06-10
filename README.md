@@ -1,7 +1,7 @@
 # Age-classfication
  - This project started when I was interested into see how a model that have been trained to an acceptable validation accuracy would classifiy me and my friends at what age
 ### My edited dataset and model check point
-[Data and model](https://drive.google.com/drive/folders/1_8wG8KkBuwocg8D-3hXxvtBLhZFS9f_r?usp=drive_link)
+[Data and model](https://drive.google.com/drive/folders/1_8wG8KkBuwocg8D-3hXxvtBLhZFS9f_r?usp=drive_link): put the model files and data fodler in the dir
 ## Dataset
  - This model is trained on the UTK dataset: https://www.kaggle.com/datasets/jangedoo/utkface-new/code
 ### Turning point 1:
@@ -45,6 +45,7 @@ because of that, I increased the drop out rate to 0.4
  - Now with drop out 0.4, and now added stratify in the train_test_split since there were imbalances in the dataset intially
  - The model nowe perform better with the initial recall for both training and validation have small difference and at high 60s, epoch loss started at 0.98 and decrease gradually.
  - After that, the valdiation recall start to decrease and the model is showing signs of overfitting
+![image](Second_training/recall.png)
 ### Third training
  - The third tranining is with AgeModelv2, which is similar but with a simplified last layer with drop out 0.4
  - The validation is even lower than before and it did not helped
