@@ -1,7 +1,7 @@
 # Age-classfication
  - This project started when I was interested into see how a model that have been trained to an acceptable validation accuracy would classifiy me and my friends at what age
 ### My edited dataset and model check point
-[Data and model]([https://link-url-here.org](https://drive.google.com/drive/folders/1_8wG8KkBuwocg8D-3hXxvtBLhZFS9f_r?usp=drive_link))
+[Data and model](https://drive.google.com/drive/folders/1_8wG8KkBuwocg8D-3hXxvtBLhZFS9f_r?usp=drive_link)
 ## Dataset
  - This model is trained on the UTK dataset: https://www.kaggle.com/datasets/jangedoo/utkface-new/code
 ### Turning point 1:
