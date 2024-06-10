@@ -45,21 +45,55 @@ because of that, I increased the drop out rate to 0.4
  - Now with drop out 0.4, and now added stratify in the train_test_split since there were imbalances in the dataset intially
  - The model nowe perform better with the initial recall for both training and validation have small difference and at high 60s, epoch loss started at 0.98 and decrease gradually.
  - After that, the valdiation recall start to decrease and the model is showing signs of overfitting
-![Recall](<Second training/Precision Error.png>)
+![PrecisionError](<Second training/Precision Error.png>)
+![Precision](<Second training/Precision .png>)
+![Recall Error](<Second training/Recall Error.png>)
+![Recall](<Second training/Recall.png>)
 
 ### Third training
  - The third tranining is with AgeModelv2, which is similar but with a simplified last layer with drop out 0.4
  - The validation is even lower than before and it did not helped
+![PrecisionError](<Third training/Precision Error.png>)
+![Precision](<Third training/Precision .png>)
+![Recall Error](<Third training/Recall Error.png>)
+![Recall](<Third training/Recall.png>)
+
 ### Fourth training 
  - Back to AgeModel with drop out rate 0.5
+![PrecisionError](<Fourth training/Precision Error.png>)
+![Precision](<Fourth training/Precision .png>)
+![Recall Error](<Fourth training/Recall Error.png>)
+![Recall](<Fourth training/Recall.png>)
+
 ### Fifth training
  - Now with L1 regularization with lambda 0.8 since there was a lot overfitting in the previous training
+
+![PrecisionError](<Fifth training/Precision Error.png>)
+![Precision](<Fifth training/Precision .png>)
+![Recall Error](<Fifth training/Recall Error.png>)
+![Recall](<Fifth training/Recall.png>)
+
 ### Sixth training
 - lambda 0.8, wd = 1e-6, batch size = 4
+
+![PrecisionError](<Sixth training/Precision Error.png>)
+![Precision](<Sixth training/Precision .png>)
+![Recall Error](<Sixth training/Recall Error.png>)
+![Recall](<Sixth training/Recall.png>)
+
 ### Seventh training 
 - lambda 0.9, wd = 1e-6, batch size = 8
+
+![PrecisionError](<Seventh training/Precision Error.png>)
+![Precision](<Seventh training/Precision .png>)
+![Recall Error](<Seventh training/Recall Error.png>)
+![Recall](<Seventh training/Recall.png>)
 ### Final training
 lambda 0.08, wd 1e-5 batch size 16, val size 25%, momentum = 0.4 (Last training)
+![PrecisionError](<Final training/Precision Error.png>)
+![Precision](<Final training/Precision .png>)
+![Recall Error](<Final training/Recall Error.png>)
+![Recall](<Final training/Recall.png>)
 ### Evaluation
 Test Precision: 0.85, Recall: 0.85, F1 Score: 0.85, Time: 2 minutes 17.13 seconds
 
