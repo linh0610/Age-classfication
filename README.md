@@ -58,11 +58,9 @@ because of that, I increased the drop out rate to 0.4
 - lambda 0.9, wd = 1e-6, batch size = 8
 ### Final training
 lambda 0.08, wd 1e-5 batch size 16, val size 25%, momentum = 0.4 (Last training)
-### Evaludation
+### Evaluation
 Test Precision: 0.85, Recall: 0.85, F1 Score: 0.85, Time: 2 minutes 17.13 seconds
 
-### Test: 
-0.85 recall and precisiom
 
 
   
