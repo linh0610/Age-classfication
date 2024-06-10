@@ -45,7 +45,9 @@ because of that, I increased the drop out rate to 0.4
  - Now with drop out 0.4, and now added stratify in the train_test_split since there were imbalances in the dataset intially
  - The model nowe perform better with the initial recall for both training and validation have small difference and at high 60s, epoch loss started at 0.98 and decrease gradually.
  - After that, the valdiation recall start to decrease and the model is showing signs of overfitting
-![recall](Second training/Precision Error.png)
+[recall](Second training/Precision Error.png)
+![Image](Secondtraining/PrecisionError.png)
+
 ### Third training
  - The third tranining is with AgeModelv2, which is similar but with a simplified last layer with drop out 0.4
  - The validation is even lower than before and it did not helped
