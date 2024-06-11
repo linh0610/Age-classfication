@@ -49,8 +49,9 @@ while True:
     # Perform inference
     with torch.no_grad():
         output = model(input_tensor)
-        predicted_age_index = torch.argmax(output).item()
-        predicted_age = classes[predicted_age_index]
+        _, predicted = torch.max(output.data, 1)
+        predicted_index = predicted.item()
+        predicted_age = classes[predicted_index]
 
     # Display the frame with predicted age
     frame_bgr = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR)  # Convert back to BGR for OpenCV
