@@ -15,13 +15,13 @@ classes = [
     '18-22', '23-27', '28-33', '34-40', '41-50',
     '51-60', '61-70', '71-80', 'over80'
 ]
+mean = [ 0.0739, -0.0482, -0.1140]
+std = [0.4999, 0.4792, 0.4785]
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    transforms.Normalize(torch.Tensor(mean), torch.Tensor(std))
 ])
-
-# Capture video stream
 cap = cv2.VideoCapture(0)
 
 while True:
@@ -37,11 +37,11 @@ while True:
     pil_image = Image.fromarray(frame_rgb)
 
     # Enhance the image (optional, you can adjust the factors as needed)
-    enhancer = ImageEnhance.Contrast(pil_image)
-    pil_image = enhancer.enhance(2)  # Increase contrast
+    # enhancer = ImageEnhance.Contrast(pil_image)
+    # pil_image = enhancer.enhance(2)  # Increase contrast
 
-    enhancer = ImageEnhance.Brightness(pil_image)
-    pil_image = enhancer.enhance(1.5)  # Increase brightness
+    # enhancer = ImageEnhance.Brightness(pil_image)
+    # pil_image = enhancer.enhance(1.5)  # Increase brightness
 
     # Preprocess the frame
     input_tensor = transform(pil_image).unsqueeze(0).to(device)
