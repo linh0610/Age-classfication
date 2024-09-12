@@ -1,10 +1,11 @@
-import cv2
-import numpy as np
+from flask import Flask, request, render_template, jsonify
 import torch
-from PIL import Image, ImageEnhance
 from torchvision import transforms
+from PIL import Image
+import io
 from model import AgeModel, device
 
+app = Flask(__name__)
 
 model = AgeModel(num_classes=14)
 model = torch.load('C:/Users/linh0/best_model.pth', map_location=device)
@@ -22,47 +23,34 @@ transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(torch.Tensor(mean), torch.Tensor(std))
 ])
-cap = cv2.VideoCapture(0)
 
-while True:
-    # Read a frame from the video stream
-    ret, frame = cap.read()
-    if not ret:
-        break
 
-    # Convert the frame from BGR to RGB (OpenCV uses BGR by default)
-    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+def classify_image(image_bytes):
+    image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
+    image = transform(image).unsqueeze(0)
 
-    # Convert the frame to a PIL image
-    pil_image = Image.fromarray(frame_rgb)
-
-    # Enhance the image (optional, you can adjust the factors as needed)
-    # enhancer = ImageEnhance.Contrast(pil_image)
-    # pil_image = enhancer.enhance(2)  # Increase contrast
-
-    # enhancer = ImageEnhance.Brightness(pil_image)
-    # pil_image = enhancer.enhance(1.5)  # Increase brightness
-
-    # Preprocess the frame
-    input_tensor = transform(pil_image).unsqueeze(0).to(device)
-
-    # Perform inference
     with torch.no_grad():
-        output = model(input_tensor)
-        _, predicted = torch.max(output.data, 1)
-        predicted_index = predicted.item()
-        predicted_age = classes[predicted_index]
+        outputs = model(image)
+        _, predicted = torch.max(outputs.data, 1)
+        predicted_class = classes[predicted.item()]
 
-    # Display the frame with predicted age
-    frame_bgr = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR)  # Convert back to BGR for OpenCV
-    cv2.putText(frame_bgr, f"Predicted Age: {predicted_age}", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-    cv2.imshow('Real-Time Age Tracking', frame_bgr)
+    return predicted_class
 
-    # Check for exit command by pressing 'q' or clicking the 'X' button
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-    if cv2.getWindowProperty('Real-Time Age Tracking', cv2.WND_PROP_VISIBLE) < 1:
-        break
 
-cap.release()
-cv2.destroyAllWindows()
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file:
+            img_bytes = file.read()
+            prediction = classify_image(img_bytes)
+            return jsonify({'class': prediction})
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
