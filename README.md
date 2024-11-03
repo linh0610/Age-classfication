@@ -105,9 +105,7 @@ lambda 0.08, wd 1e-5 batch size 16, val size 25%, momentum = 0.4 (Last training)
 ![Recall](<Last training/Recall.png>)
 ### Evaluation
 Test Precision: 0.85, Recall: 0.85, F1 Score: 0.85, Time: 2 minutes 17.13 seconds
-### Final product using OpenCv camera capture (found in src)
-![Image](final.png)
-since my camera is not that great, and the data set image is very good, there may be some error associated with that 
+
 
 
   
